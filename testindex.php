@@ -148,11 +148,50 @@
 
 	<center><h1 class="tittle">FH Aachen Manufacturing Cube</h1></br></center>
 	
+
+
 	
+
+	
+	
+	
+	<div id="dom-target" style="display: none;">
 <?php
 // define variables and set to empty values
 $name = $email = "";
+$maximo=0;
 
+	$servername = "localhost";
+	$username = "root";
+	$password = "projectcube";
+	$dbname = "project2";
+	
+	// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT OrderID FROM Orders";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        
+		$maximo=$maximo+1;
+    }
+	echo "OrderID: " . $maximo. "<br>";
+} else {
+    echo "0 results";
+}
+$conn->close();
+
+
+/* 	$last_id = $conn->insert_id;
+    echo "New record created successfully. Last inserted ID is: " . $last_id;	 */
+	
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $name = test_input($_POST["name"]);
@@ -162,8 +201,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$username = "root";
 	$password = "projectcube";
 	$dbname = "project2";
+	$last_id = $conn->insert_id;
+    echo "New record created successfully. Last inserted ID is: " . $last_id;	
+	
 	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
+	$conn = new mysqli($servername, $username, $password, $dbname);    
 	// Check connection
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
@@ -185,7 +227,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if ($conn->query($sql) === TRUE) {
 	$last_id = $conn->insert_id;
     echo "New record created successfully. Last inserted ID is: " . $last_id;	
-    echo "New record created successfully";
 	} else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 	}	
@@ -209,7 +250,7 @@ function test_input($data) {
    return $data;
 }
 ?>
-
+</div>
 
 
 
@@ -219,11 +260,18 @@ function test_input($data) {
   </head>
   <body>
     <script>
-      var js_var = "<?php echo $last_id; ?>";
-        alert(js_var);
+      //var js_var = "<?php echo $last_id; ?>";
+	  var js_var = <?php echo json_encode("$last_id"); ?>;
+        alert("js_var="+ js_var);
     </script>
   </body>
 </html>
+
+<script>
+    var div = document.getElementById("dom-target");
+    var myData = div.textContent;
+	alert("myData = " + myData);
+</script>
 
  
 
@@ -252,5 +300,8 @@ echo "<br>";
     <script>
     
 </script>
+
+
+
 
 </html>

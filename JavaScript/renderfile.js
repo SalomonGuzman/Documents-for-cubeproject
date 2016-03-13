@@ -1,4 +1,4 @@
-
+   
 
 	//Preparamos el render
 	var Render=new THREE.WebGLRenderer( { antialias: true } );
@@ -58,6 +58,9 @@
 	var arrayBlockCounter = 0;
 	
 	var PHP_last_id_js = 319875;//<?php echo $last_id; ?>;
+	
+	//var data = <?php echo json_encode("$last_id"); ?>
+	//alert(data);
 
 	function Block(PartCode, Type, Color, PosX, PosZ, objHeight, objLength){
 		
@@ -468,6 +471,10 @@
 	}
 	
 	function modelo_chasis(modelo_color, partcode){
+		 var div = document.getElementById("dom-target");
+    var myData = div.textContent;
+	alert("myData="+myData);
+		
 		//alert("entro a chassis");
 		if( ok1 ){
 		//alert("entro a condicion ok1");

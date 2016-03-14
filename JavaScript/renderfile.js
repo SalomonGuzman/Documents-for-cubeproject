@@ -519,6 +519,7 @@
 			arrayBlock[arrayBlockCounter].PosZ = 0;
 			arrayBlock[arrayBlockCounter].length = 6;
 			arrayBlock[arrayBlockCounter].height = 1;
+			ajaxReserveBlock();
 			//Aumenta el counter para la posicion dentro del arreglo de bloques
 			arrayBlockCounter++;
 		
@@ -797,7 +798,7 @@
 		//Crea el objeto de Chasis en el arreglo de bloques
 		arrayBlock[arrayBlockCounter] = new Block(PartCode, BlockType, modelo_color);
 		
-		//ajaxReserveBlock();
+		ajaxReserveBlock();
 	}
 	
 	function modelo_222(modelo_color, partcode){
@@ -838,7 +839,7 @@
 		arrayBlock[arrayBlockCounter] = new Block(PartCode, "LegoBlock", modelo_color,"Normal");
 		//alert(arrayBlock[arrayBlockCounter].PartCode)
 		
-		//ajaxReserveBlock();
+		ajaxReserveBlock();
 	}	
 
 	function modelo_241(modelo_color, partcode){
@@ -877,7 +878,7 @@
 		//Crea el objeto de Chasis en el arreglo de bloques
 		arrayBlock[arrayBlockCounter] = new Block(PartCode, "LegoBlock", modelo_color, "Normal");
 		
-		//ajaxReserveBlock();
+		ajaxReserveBlock();
 	}
 	
 	function modelo_242(modelo_color, partcode){
@@ -916,7 +917,7 @@
 		//Crea el objeto de Chasis en el arreglo de bloques
 		arrayBlock[arrayBlockCounter] = new Block(PartCode, "LegoBlock", modelo_color, "Normal");
 		
-		//ajaxReserveBlock();
+		ajaxReserveBlock();
 	}	
 	
 	function modelo_261(modelo_color, partcode){
@@ -956,7 +957,7 @@
 		//Crea el objeto de Chasis en el arreglo de bloques
 		arrayBlock[arrayBlockCounter] = new Block(PartCode, "LegoBlock", modelo_color, "Normal");
 		
-		//ajaxReserveBlock();
+		ajaxReserveBlock();
 	}
 
 	function modelo_281(modelo_color, partcode){
@@ -996,7 +997,7 @@
 		//Crea el objeto de Chasis en el arreglo de bloques
 		arrayBlock[arrayBlockCounter] = new Block(PartCode, "LegoBlock", modelo_color, "Normal");
 		
-		//ajaxReserveBlock();
+		ajaxReserveBlock();
 	}
 	
 	function modelo_232(modelo_color, partcode){
@@ -1040,7 +1041,7 @@
 		//Crea el objeto de Chasis en el arreglo de bloques
 		arrayBlock[arrayBlockCounter] = new Block(PartCode, "LegoBlock", modelo_color, "Normal");
 		
-		//ajaxReserveBlock();
+		ajaxReserveBlock();
 	}
 	
 	function modelo_242_techo(modelo_color, partcode){
@@ -1081,7 +1082,7 @@
 		//Crea el objeto de Chasis en el arreglo de bloques
 		arrayBlock[arrayBlockCounter] = new Block(PartCode, "LegoBlock", modelo_color, "Normal");
 		
-		//ajaxReserveBlock();
+		ajaxReserveBlock();
 	}
 	
 	function modelo_233(modelo_color, partcode){
@@ -1122,7 +1123,7 @@
 		//Crea el objeto de Chasis en el arreglo de bloques
 		arrayBlock[arrayBlockCounter] = new Block(PartCode, "LegoBlock", modelo_color, "Normal");
 		
-		//ajaxReserveBlock();
+		ajaxReserveBlock();
 	}
   
 	function modelo_213(modelo_color, partcode){
@@ -1163,7 +1164,7 @@
 		//Crea el objeto de Chasis en el arreglo de bloques
 		arrayBlock[arrayBlockCounter] = new Block(PartCode, "LegoBlock", modelo_color, "Normal");
 		
-		//ajaxReserveBlock();
+		ajaxReserveBlock();
 	}	
 	
 	function rem_3(){
@@ -1484,11 +1485,7 @@
 		
 		var blockToReserv = {
 		  "LegoBlock": {
-			"LastID": arrayBlock[arrayBlockCounter].PHP_last_id_block,
-			"PartCode":  arrayBlock[arrayBlockCounter].PartCode,
-			"Type": arrayBlock[arrayBlockCounter].Type,
-			"Color": arrayBlock[arrayBlockCounter].Color,
-			"BlockType": arrayBlock[arrayBlockCounter].BlockType
+			"PartCode":  arrayBlock[arrayBlockCounter].PartCode
 		  }
 		}	 
 
@@ -1503,8 +1500,8 @@
 		// Create our XMLHttpRequest object
 		var hr = new XMLHttpRequest();
 		// Create some variables we need to send to our PHP file
-		var url = "ajax.php";
-		var vars = "array="+sXML;
+		var url = "ResStock.php";
+		var vars = "RestBlock="+sXML;
 		hr.open("POST", url, true);
 		// Set content type header information for sending url encoded variables in the request
 		hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -1543,53 +1540,7 @@
 	
 }
 	
-	function ajaxTable(){
-		alert("tabla");
-	var Create = 1;
-	// Create our XMLHttpRequest object
-    var hr = new XMLHttpRequest();
-    // Create some variables we need to send to our PHP file
-    var url = "CreateTable.php";
-    var vars = "Create="+Create;
-    hr.open("POST", url, true);
-    // Set content type header information for sending url encoded variables in the request
-    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    // Access the onreadystatechange event for the XMLHttpRequest object
-    hr.onreadystatechange = function() {
-	    if(hr.readyState == 4 && hr.status == 200) {
-		    var return_data = hr.responseText;
-			document.getElementById("status").innerHTML = return_data;
-	    }
-    }
-    // Send the data to PHP now... and wait for response to update the status div
-    hr.send(vars); // Actually execute the request
-    document.getElementById("status").innerHTML = "processing...";
-	
-}
 
-	function ajaxWriteXML(){
-		//alert("a escribir");
-		var Write = 1;
-		// Create our XMLHttpRequest object
-		var hr = new XMLHttpRequest();
-		// Create some variables we need to send to our PHP file
-		var url = "SaveXML2.php";
-		var vars = "Write="+Write;
-		hr.open("POST", url, true);
-		// Set content type header information for sending url encoded variables in the request
-		hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		// Access the onreadystatechange event for the XMLHttpRequest object
-		hr.onreadystatechange = function() {
-			if(hr.readyState == 4 && hr.status == 200) {
-				var return_data = hr.responseText;
-				document.getElementById("status").innerHTML = return_data;
-			}
-		}
-		// Send the data to PHP now... and wait for response to update the status div
-		hr.send(vars); // Actually execute the request
-		document.getElementById("status").innerHTML = "processing...";
-		
-}
 	
 	$( "#render" ).droppable({
             tolerance: 'touch',

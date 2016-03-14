@@ -56,11 +56,11 @@
 	
 	var arrayBlock = [];
 	var arrayBlockCounter = 0;
-	
-	var PHP_last_id_js = 319875;//<?php echo $last_id; ?>;
-	
-	//var data = <?php echo json_encode("$last_id"); ?>
-	//alert(data);
+	var div = document.getElementById("dom-target");
+    var myData = div.textContent;
+	alert("myData="+myData);
+	var PHP_last_id_js = myData;//<?php echo $last_id; ?>;
+
 
 	function Block(PartCode, Type, Color, PosX, PosZ, objHeight, objLength){
 		
@@ -81,8 +81,8 @@
 		this.Color = Color;
 		this.BlockType = BlockType;
 		this.PHP_last_id_block = PHP_last_id_js;
-		alert(PHP_last_id_js);
-		alert(this.PHP_last_id_block);
+		alert("Valor del id al crearse el objeto = " + PHP_last_id_js);
+		alert("Valor del id del objeto = " + this.PHP_last_id_block);
 	}
 
 	function inicio(){
@@ -471,9 +471,6 @@
 	}
 	
 	function modelo_chasis(modelo_color, partcode){
-		 var div = document.getElementById("dom-target");
-    var myData = div.textContent;
-	alert("myData="+myData);
 		
 		//alert("entro a chassis");
 		if( ok1 ){

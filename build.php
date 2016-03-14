@@ -260,11 +260,47 @@
     </center>
 
   </div>
+  
+  <div id="dom-target" style="display: none;">
+    <?php 
+	
+	$maximo=0;
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "projectcube";
+	$dbname = "project2";
+	
+	// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT OrderID FROM Orders";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        
+		$maximo=$maximo+1;
+    }
+	echo "OrderID: " . $maximo. "<br>";
+} else {
+    echo "0 results";
+}
+$conn->close();
+	
+
+    ?>
+</div>
+  
 
     <script src="JavaScript/three.min.js"></script>
     <script src="JavaScript/OrbitControls.js"></script>
     <script src="JavaScript/Jsonconverter.js"></script>
-	
 		
     <script src="JavaScript/renderfile.js"></script> 
 
@@ -376,41 +412,7 @@
     });
  
   </script>
-<div id="dom-target" style="display: none;">
-    <?php 
-	
-	$maximo=0;
 
-	$servername = "localhost";
-	$username = "root";
-	$password = "projectcube";
-	$dbname = "project2";
-	
-	// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-$sql = "SELECT OrderID FROM Orders";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        
-		$maximo=$maximo+1;
-    }
-	echo "OrderID: " . $maximo. "<br>";
-} else {
-    echo "0 results";
-}
-$conn->close();
-	
-
-    ?>
-</div>
 <script>
 
 </script>

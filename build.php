@@ -287,7 +287,7 @@ if ($result->num_rows > 0) {
         
 		$maximo=$maximo+1;
     }
-	echo "OrderID: " . $maximo. "<br>";
+	echo $maximo. "<br>";
 } else {
     echo "0 results";
 }

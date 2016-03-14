@@ -1371,7 +1371,7 @@
 	}	
 	
 	function Delall(){
-	var Reload = 1;
+	var Reload = arrayBlock[arrayBlockCounter].PHP_last_id_block;
 	// Create our XMLHttpRequest object
     var hr = new XMLHttpRequest();
     // Create some variables we need to send to our PHP file

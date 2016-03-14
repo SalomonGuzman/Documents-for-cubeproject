@@ -91,7 +91,7 @@
             <a href="index.html" title="Home">Home</a><a href="kontakt/" title="Contact">Contact</a><a href="#" title="about us">About us</a>
         </div>
         <div id="LOGIN">    
-            <a style="cursor:pointer" title="Öffnet die Login-Box" onclick="document.loginbutton.submit()">Login</a><form style="visibility:hidden" action="/" name="loginbutton" method="post"><input type="hidden" name="995F472B" value="2060A5A289FD684BAD2756C18F7E4393"><input type="hidden" name="login" value="1"></form>
+            <a style="cursor:pointer" title="Öffnet die Login-Box" >Login</a><form style="visibility:hidden" action="/" name="loginbutton" method="post"><input type="hidden" name="995F472B" value="2060A5A289FD684BAD2756C18F7E4393"><input type="hidden" name="login" value="1"></form>
             <div class="loginbox" id="LoginBox" onclick="document.getElementById('LoginBox').style.visibility='hidden';document.getElementById('LoginFrame').style.visibility='hidden'"></div><div class="loginframe" id="LoginFrame"><div class="content" >
 
 	<div class="tx-felogin-pi1">
@@ -281,7 +281,8 @@ function test_input($data) {
    <br><br>
    E-mail: <input type="text" name="email">
    <br><br>
-   <input type="submit" name="submit" value="Submit">    
+   <input type="submit" name="submit" value="submit" onClick="location.href='build.html'">
+   
 </form>
 
 

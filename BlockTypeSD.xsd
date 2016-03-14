@@ -3,8 +3,9 @@
 
 	<!-- definition of simple types -->
 	<xs:simpleType name="OrderIDType">
-		<xs:restriction base="xs:string">
-			<xs:pattern value="[0-9]{6}"/>
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="1000"/>	
 		</xs:restriction>
 	</xs:simpleType>
 	

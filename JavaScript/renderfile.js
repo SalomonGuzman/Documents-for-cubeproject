@@ -1,4 +1,4 @@
-   
+
 
 	//Preparamos el render
 	var Render=new THREE.WebGLRenderer( { antialias: true } );
@@ -1174,7 +1174,7 @@
 		count--;
 		
 		
-	}
+	
 	
 	var first = objects[count];	
 	Escenario.remove(first);
@@ -1227,10 +1227,10 @@
 	}	}
 	
 	
-	
-	delete(arrayBlock[arrayBlockCounter]);
 	ajaxDelete();
-	}
+	delete(arrayBlock[arrayBlockCounter]);
+	
+	} }
 
 	function PosYOk(value){
 		//alert("entro de posyok ");
@@ -1521,7 +1521,7 @@
   }
 
 	function ajaxDelete(){
-	var Delete = 1;
+	var Delete = arrayBlock[arrayBlockCounter].PHP_last_id_block;
 	// Create our XMLHttpRequest object
     var hr = new XMLHttpRequest();
     // Create some variables we need to send to our PHP file

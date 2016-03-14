@@ -265,7 +265,6 @@
     <?php 
 	
 	$maximo=0;
-
 	$servername = "localhost";
 	$username = "root";
 	$password = "projectcube";
@@ -277,23 +276,20 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-
 $sql = "SELECT OrderID FROM Orders";
 $result = $conn->query($sql);
-
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         
 		$maximo=$maximo+1;
     }
-	echo "OrderID: " . $maximo. "<br>";
+	echo $maximo. "<br>";
 } else {
     echo "0 results";
 }
 $conn->close();
 	
-
     ?>
 </div>
   
@@ -323,7 +319,6 @@ $conn->close();
             $( "#show_chasisR" ).draggable({ revert: true});
             $( "#show_chasisA" ).draggable({ revert: true});
             $( "#show_chasisV" ).draggable({ revert: true});
-
             $( "#show_body_2x2x2_R" ).draggable({ revert: true});
             $( "#show_body_2x2x2_A" ).draggable({ revert: true});
             $( "#show_body_2x4x1_A" ).draggable({ revert: true});
@@ -336,10 +331,7 @@ $conn->close();
             $( "#show_body_2x6_1_A" ).draggable({ revert: true});
             $( "#show_body_2x4x2_R" ).draggable({ revert: true});
             $( "#show_tanque" ).draggable({ revert: true});
-
             $("#show_techo_2x3x2_A").draggable({revert:true});
-
-
        $(function() {
           $('*[draggable!=true]','.slick-track').unbind('dragstart');
           $( ".draggable-element" ).draggable();
@@ -414,6 +406,5 @@ $conn->close();
   </script>
 
 <script>
-
 </script>
 </html>

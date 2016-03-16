@@ -57,9 +57,9 @@
 	var arrayBlock = [];
 	var arrayBlockCounter = 0;
 	var div = document.getElementById("dom-target");
-    var myData = div.textContent;
+/*     var myData = div.textContent;
 	alert("myData="+myData);
-	var PHP_last_id_js = myData;//<?php echo $last_id; ?>;
+	var PHP_last_id_js = myData;//<?php echo $last_id; ?>; */
 
 
 	function Block(PartCode, Type, Color, PosX, PosZ, objHeight, objLength){

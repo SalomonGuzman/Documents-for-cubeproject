@@ -21,7 +21,7 @@ if ($_POST['Reload']){
 		header('Location: ErrorPage.html');
 		//echo "Error deleting record: " . $conn->error;
 	}
-		
+	///popopopopopopopopopopo
 	$conn->close();		
 }
 
